@@ -2,7 +2,7 @@ const express = require ("express");
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-
+const http = require('http');
 const cors = require('cors');
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, './.env') });
@@ -15,6 +15,7 @@ const orderRoute = require("./routes/order");
 const router = express.Router();
 
 const app = express();
+
 app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -48,5 +49,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoute);
 app.use("/api/cart", cartRoute);
 app.use("/api/orders", orderRoute);
+
+
 
 app.listen(8000, () => console.log('Listening...'));
