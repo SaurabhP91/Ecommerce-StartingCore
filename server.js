@@ -50,6 +50,9 @@ app.use("/api/products", productRoute);
 app.use("/api/cart", cartRoute);
 app.use("/api/orders", orderRoute);
 
+app.get('/', (req, res) => {
+    res.send('<h1>Welcome to the E-commerce App</h1>');
+});
 
 
 app.listen(8000, () => console.log('Listening...'));
